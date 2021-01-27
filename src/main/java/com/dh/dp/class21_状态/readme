@@ -1,0 +1,13 @@
+根据状态决定行为
+
+
+有限状态机 FSM（Finite State Machine）
+不是状态模式
+
+线程5种状态
+new     ready     running   teminated   blocked
+创建     就绪       运行       死亡         阻塞
+7种状态
+waiting timedWaiting
+等待     超时等待
+

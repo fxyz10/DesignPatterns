@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+    <bean id="tank" class="com.dh.dp.class11_代理.v6_spring.v1.Tank"/>
+    <bean id="timeProxy" class="com.dh.dp.class11_代理.v6_spring.v1.TimeProxy"/>
+
+    <aop:config>
+        <aop:aspect id="time" ref="timeProxy">
+            <aop:pointcut id="onMove" expression="execution(void com.dh.dp.class11_代理.v6_spring.v1.Tank.move())"/>
+            <aop:before method="before" pointcut-ref="onMove"/>
+            <aop:after method="after" pointcut-ref="onMove"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
